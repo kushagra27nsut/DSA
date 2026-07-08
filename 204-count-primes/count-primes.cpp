@@ -1,21 +1,22 @@
 class Solution {
 public:
     int countPrimes(int n) {
-        int i = 2 ;
-        vector<int> nd ;
-        while ( i < n){
-            bool pr = true ;
-            for(const auto& it : nd){
-                if (1LL*it*it > i) 
-                    break;
-                if ((i%it) == 0 ){
-                    pr = false ;
-                    break ;
+        if (n <= 2) return 0;
+        vector<bool> prime(n,true) ;
+        int count = 0 ;
+        prime[0] = prime[1] = false ;
+        for(int i= 2 ; i*i <= n ; i++){
+            if(prime[i]){
+                for(int j = i*i ; j < n ; j+=i){
+                    prime[j] = false ;
                 }
             }
-            if (pr) nd.push_back(i) ;
-            i+=1;
         }
-        return nd.size() ;
+        for(int i = 2 ; i < n ; i++ ){
+            if(prime[i]){
+                count++ ;
+            }
+        }
+        return count ;
     }
 };
