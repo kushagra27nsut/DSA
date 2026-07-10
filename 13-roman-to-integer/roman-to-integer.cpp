@@ -2,18 +2,23 @@ class Solution {
 public:
     int romanToInt(string s) {
         int ans = 0 ;
-        unordered_map<char,int> mp{
-            {'I',1} , {'V',5} , {'X',10} , {'L',50} , {'C',100} , {'D',500} , {'M', 1000}
-        } ;
+        int val[128] ;
+        val['I'] = 1;
+        val['V'] = 5;
+        val['X'] = 10;
+        val['L'] = 50;
+        val['C'] = 100;
+        val['D'] = 500;
+        val['M'] = 1000;
         for(int i = 0 ; i < s.size() - 1 ; i++ ){
-            if(mp[s[i]] < mp[s[i+1]] ){
-                ans -= mp[s[i]] ;
+            if(val[s[i]] < val[s[i+1]] ){
+                ans -= val[s[i]] ;
             }
             else{
-                ans += mp[s[i]] ;
+                ans += val[s[i]] ;
             }
         }
-        ans += mp[s.back()] ;
+        ans += val[s.back()] ;
         return ans ;
     }
 };
