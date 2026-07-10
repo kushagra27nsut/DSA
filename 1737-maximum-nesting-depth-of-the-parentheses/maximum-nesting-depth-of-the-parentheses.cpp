@@ -5,11 +5,11 @@ public:
         for(char c : s ){
             if(c == '('){
                 count++ ;
+                ans = max(ans,count);
             }
             else if(c == ')'){
                 count-- ;
             }
-            ans = max(ans,count);
         }
         return ans ;
     }
