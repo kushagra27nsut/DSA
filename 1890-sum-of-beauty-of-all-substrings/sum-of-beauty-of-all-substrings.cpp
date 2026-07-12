@@ -7,7 +7,7 @@ public:
             vector<int> freq(26,0) ;
             for(int j = i ; j < n ; j++ ){
                 freq[s[j] - 'a']++ ;
-                int m = INT_MIN ;
+                int m = 0 ;
                 int mn = INT_MAX ;
                 for(int it : freq ){
                     if(it == 0 ) continue ;
