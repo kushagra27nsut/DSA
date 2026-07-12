@@ -4,16 +4,17 @@ public:
         int n = s.size();
         int sum = 0;
         for(int i = 0 ; i < n ; i++ ){
-            unordered_map<char,int> freq ;
+            vector<int> freq(26,0) ;
             for(int j = i ; j < n ; j++ ){
-                freq[s[j]]++ ;
+                freq[s[j] - 'a']++ ;
                 int m = INT_MIN ;
-                int n = INT_MAX ;
-                for(auto it : freq ){
-                    m = max(m,it.second) ;
-                    n = min(n,it.second) ;
+                int mn = INT_MAX ;
+                for(int it : freq ){
+                    if(it == 0 ) continue ;
+                    m = max(m,it) ;
+                    mn = min(mn,it) ;
                 }
-                sum += (m-n) ;
+                sum += (m-mn) ;
             }
         }
         return sum ;
