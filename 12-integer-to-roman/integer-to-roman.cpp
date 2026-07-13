@@ -1,16 +1,26 @@
 class Solution {
 public:
     string intToRoman(int num) {
-        vector<int> value = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
-        vector<string> symbol = {
-            "M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"
-        };
+        char one[] = {'I','X','C','M'} ;
+        char five[] = {'V','L','D'} ;
+        int m = 0 ;
         string s = "" ;
-        for(int i = 0 ; i <= 12 ; i++ ){
-            while(num >= value[i]){
-                s += symbol[i] ;
-                num -= value[i] ;
+        while (num){
+            int n = num%10 ;
+            if( n == 9 ){
+                s = string(1,one[m])+ string(1,one[m+1]) + s ;
             }
+            else if ( n == 4){
+                s = string(1,one[m]) + string(1,five[m]) + s ;
+            }
+            else if (n >= 5){
+                s = string(1,five[m]) + string(n-5,one[m]) + s ;
+            }
+            else if (n > 0){
+                s = string(n,one[m]) + s ;
+            }
+            m++ ;
+            num /= 10 ;
         }
         return s ;
     }
