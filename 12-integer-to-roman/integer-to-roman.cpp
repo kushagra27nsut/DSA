@@ -14,14 +14,11 @@ public:
             else if ( n == 4){
                 s = string(1,mp[m]) + string(1,mp[5*m]) + s ;
             }
-            else if ( n < 9 && n > 5){
+            else if (n >= 5){
                 s = string(1,mp[m*5]) + string(n-5,mp[m]) + s ;
             }
-            else if ( n < 5 && n > 0){
+            else if (n > 0){
                 s = string(n,mp[m]) + s ;
-            }
-            else if (n == 5 || n == 1){
-                s = string(1,mp[n*m]) + s ;
             }
             m = m*10 ;
             num /= 10 ;
