@@ -10,12 +10,12 @@ public:
             int mid = low + (high - low )/2 ;
             int count = 0 , tmp = 1 ;
             for(int num : weights){
-                if(count + num <= mid ){
-                    count += num ;
+                if (count + num > mid) {
+                    tmp++;
+                    count = num;
                 }
-                else{
-                    tmp++ ;
-                    count = num ;
+                else {
+                    count += num;
                 }
                 if(tmp > days ) break ;
             }
