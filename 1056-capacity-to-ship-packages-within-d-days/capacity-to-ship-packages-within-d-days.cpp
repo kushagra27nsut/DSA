@@ -17,6 +17,7 @@ public:
                     tmp++ ;
                     count = num ;
                 }
+                if(tmp > days ) break ;
             }
             if (tmp > days){
                 low = mid + 1 ;
