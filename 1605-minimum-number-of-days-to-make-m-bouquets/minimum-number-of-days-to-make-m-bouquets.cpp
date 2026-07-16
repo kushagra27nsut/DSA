@@ -8,15 +8,15 @@ public:
         while(low <= high ){
             int mid = low + (high - low)/ 2 ;
             int count = 0 , tmp = 0 ;
-            for( int num : bloomDay ){
-                if(mid >= num){
-                    count++;
+            for( int day : bloomDay ){
+                if( day <= mid ){
+                    count++ ;
+                    if(count == k ){
+                        tmp++;
+                        count = 0 ;
+                    }
                 }
-                if ( count >= k ){
-                    tmp++ ;
-                    count = 0 ;
-                }
-                else if ( mid < num && count < k){
+                else{
                     count = 0 ;
                 }
             }
