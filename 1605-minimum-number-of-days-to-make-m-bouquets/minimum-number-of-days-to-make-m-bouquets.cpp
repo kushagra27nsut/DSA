@@ -14,6 +14,8 @@ public:
                     if(count == k ){
                         tmp++;
                         count = 0 ;
+                        if (tmp >= m)
+                            break;
                     }
                 }
                 else{
